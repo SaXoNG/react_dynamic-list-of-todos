@@ -12,14 +12,10 @@ export const TodoList: React.FC<Props> = ({
   selectedTodo,
   todoSetter: todoSetter,
 }) => {
-  let seletedTodoId = 0;
+  const selectedTodoId = selectedTodo ? selectedTodo.id : 0;
 
   if (!todos) {
-    return;
-  }
-
-  if (selectedTodo) {
-    seletedTodoId = selectedTodo.id;
+    return null;
   }
 
   const handleSelectedTodo = (id: number): void => {
@@ -53,7 +49,7 @@ export const TodoList: React.FC<Props> = ({
             <tr
               data-cy="todo"
               className={cn('', {
-                'has-background-info-light': seletedTodoId === todo.id,
+                'has-background-info-light': selectedTodoId === todo.id,
               })}
               key={todo.id}
             >

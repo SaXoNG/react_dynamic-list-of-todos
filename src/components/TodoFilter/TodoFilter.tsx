@@ -51,7 +51,7 @@ export const TodoFilter: React.FC<Proprs> = ({ todos, setter }) => {
 
       setter(preparedTodos);
     }
-  }, [selectedOption, inputValue]);
+  }, [todos, selectedOption, inputValue]);
 
   return (
     <form className="field has-addons">
